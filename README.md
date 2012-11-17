@@ -4,6 +4,10 @@
 
 Install `fonts/Inconsolata-g-Powerline.ttf` and set is as the terminal font
 
+### Notes
+
+There might be some errors in .vimrc, this is usually ok and the install can continue
+
 ### Attributions
 
 Inconsolata-g was originally from http://leonardo-m.livejournal.com/77079.html

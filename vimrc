@@ -505,6 +505,11 @@ if exists('$ITERM_PROFILE')
   cmap <f29> <nop>
 end
 
+" Add racket support (use scheme highlighting)
+if has("autocmd")
+  au BufReadPost *.rkt,*.rktl set filetype=scheme
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LAST SECTION
 " Include user's local vim config

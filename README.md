@@ -1,6 +1,6 @@
 ### Installation
 
-`git clone git://github.com/kochis/vimfiles.git ~/.vim && ~/.vim/setup.sh`
+`git clone git@github.com:kochis/vimfiles.git ~/.vim && ~/.vim/setup.sh`
 
 Install `fonts/Inconsolata-g-Powerline.ttf` and set is as the terminal font
 

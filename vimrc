@@ -239,7 +239,8 @@ cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+" let g:syntastic_quiet_warnings=1 DEPRECATED
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 0

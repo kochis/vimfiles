@@ -459,15 +459,22 @@ call Pl#Theme#RemoveSegment('scrollpercent')
 " Source: https://github.com/Casecommons/casecommons_workstation/blob/master/templates/default/dot_tmux.conf.erb
 "         https://github.com/Casecommons/vim-config/blob/master/init/tmux.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if exists('$ITERM_PROFILE')
-  if exists('$TMUX')
-    let &t_SI = "\<Esc>[3 q"
-    let &t_EI = "\<Esc>[0 q"
-  else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  endif
-end
+" if exists('$ITERM_PROFILE')
+"   if exists('$TMUX')
+"     let &t_SI = "\<Esc>[3 q"
+"     let &t_EI = "\<Esc>[0 q"
+"   else
+"     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"   endif
+" end
+
+" fix cursor in vim in tmux
+" http://blog.terriblelabs.com/blog/2013/02/09/stupid-vim-tricks-how-to-change-insert-mode-cursor-shape-with-tmux/
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+inoremap <special> <Esc> <Esc>hl
+set guicursor+=i:blinkwait0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " This fixes pasting from iterm (and some other terminals, but you'll need to

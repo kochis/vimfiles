@@ -335,7 +335,7 @@ map <leader>jf :let g:ctrlp_default_input = 'features/'<cr>:CtrlP<cr>
 map <leader>f :let g:ctrlp_default_input = 0<cr>:CtrlP<cr>
 map <leader>u :let g:ctrlp_default_input = 0<cr>:CtrlPBuffer<cr>
 map <leader><leader>f :let g:ctrlp_default_input = 0<cr>:CtrlPClearCache<cr>:CtrlP<cr>
-
+set wildignore+=*/public/uploads/**
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ack mappings

@@ -143,6 +143,8 @@ Bundle 'ReplaceWithRegister'
 
 Bundle 'henrik/vim-yaml-flattener'
 
+Bundle 'hhvm/vim-hack'
+
 :runtime macros/matchit.vim
 
 filetype plugin indent on

@@ -2,10 +2,9 @@ set nocompatible
 let mapleader = ","
 
 " Vundle
-filetype on
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Include user's local vim bundles
@@ -15,139 +14,136 @@ if filereadable(expand("~/.vim_bundles.local"))
   source ~/.vim_bundles.local
 endif
 
-" Bundler for vim, use :BundleInstall to install these bundles and
-" :BundleUpdate to update all of them
-Bundle 'gmarik/vundle'
+" Let Vundle manage itself
+Plugin 'VundleVim/Vundle.vim'
 
 " Git in vim, use ,gs for git status then - to stage then C to commit
 " check :help Gstatus for more keys
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " Surrond stuff with things. ysiw" surrounds a word with quotes
 " cs"' changes " to '
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " Lets you use . to repeat some things like vim-surround
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 
 " Comment with gc (takes a motion) or ^_^_
-Bundle 'tomtom/tcomment_vim'
+Plugin 'tomtom/tcomment_vim'
 
 " Open a file (like cmd-t but better). Use ,f or ,j(something, see bindings
 " below)
-Bundle 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Adds :Ack complete w/ quick fix
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 
 " Updates your status line to show what selector you're in in sass files
-Bundle 'aaronjensen/vim-sass-status'
+Plugin 'aaronjensen/vim-sass-status'
 
 " Kills a buffer without closing a split, use ,w . Used in conjunction 
 " with command-w, below...
-Bundle 'vim-scripts/bufkill.vim'
+Plugin 'vim-scripts/bufkill.vim'
 
 " Smarts around killing buffers, will close the split if it's the last buffer in
 " it, and close vim if it's the last buffer/split. Use ,w
-Bundle 'nathanaelkane/vim-command-w'
+Plugin 'nathanaelkane/vim-command-w'
 
 " Shows syntax errors on several types of files
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " Automatically add end at the end of ruby and vim blocks
-Bundle 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
 
 " Add a few paired mappings, in particular [q and ]q to navigate the quickfix
 " list
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 
 " Handy file manipulations. Favorites are :Remove and :Rename
-Bundle 'tpope/vim-eunuch'
+Plugin 'tpope/vim-eunuch'
 
 " Allows custom textobj motions (like i" or a[)
-Bundle 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-user'
 
 " Motion based on indent level. Useful in coffeescript, try vai to select
 " everything on the current indent level. vii is similar, but will not ignore
 " blank lines
-Bundle 'kana/vim-textobj-indent'
+Plugin 'kana/vim-textobj-indent'
 
 " Motion based on ruby blocks. vir selects in a ruby block
-Bundle 'nelstrom/vim-textobj-rubyblock'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " Tab to indent or autocomplete depending on context
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 
 " Run specs or cucumber features with ,t run only the test under the cursor
 " with ,T also remembers last run test so you can hit it again on non-test
 " files to run the last run test
-Bundle 'skalnik/vim-vroom'
+" Plugin 'skalnik/vim-vroom'
 
 " Vim coffeescript runtime files
-Bundle 'kchmck/vim-coffee-script'
-
-" Stuff for cucumber, try out ^] on a step in a feature to go to step
-" definition
-Bundle 'tpope/vim-cucumber'
+Plugin 'kchmck/vim-coffee-script'
 
 " Updated ruby syntax and such
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 
 " Some syntax highlighthing for rails and :Rextract to extract partials
-Bundle 'tpope/vim-rails'
+Plugin 'tpope/vim-rails'
 
 " Improved javascript indentation
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
 " Vim Git runtime files
-Bundle 'tpope/vim-git'
+Plugin 'tpope/vim-git'
 
 " Vim runtime files for Haml, Sass, and SCSS
-Bundle 'tpope/vim-haml'
+Plugin 'tpope/vim-haml'
 
 " Vim Markdown runtime files
-Bundle 'tpope/vim-markdown'
+Plugin 'tpope/vim-markdown'
 
 " vim handlebars runtime files
-Bundle 'nono/vim-handlebars'
+Plugin 'nono/vim-handlebars'
 
 " Syntax for jquery keywords and selectors
-Bundle 'itspriddle/vim-jquery'
+Plugin 'itspriddle/vim-jquery'
 "
 " Vim syntax for jst files
-Bundle 'jeyb/vim-jst'
+Plugin 'jeyb/vim-jst'
 
 " Syntax for nginx
-Bundle 'mutewinter/nginx.vim'
+Plugin 'mutewinter/nginx.vim'
 
 " Makes css colors show up as their actual colors, works better with CSApprox
 " or macvim
-Bundle 'ap/vim-css-color'
+Plugin 'ap/vim-css-color'
 
 " My favorite dark color scheme
-Bundle 'mrtazz/molokai.vim'
+Plugin 'mrtazz/molokai.vim'
 
 " Decent light color scheme
-Bundle 'nelstrom/vim-mac-classic-theme'
+Plugin 'nelstrom/vim-mac-classic-theme'
 
 " vim powerline -  The ultimate vim statusline utility
-Bundle 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-powerline'
 
 " makes the command line behave like emacs
-Bundle 'houtsnip/vim-emacscommandline'
+Plugin 'houtsnip/vim-emacscommandline'
 
 " Adds gr command to replace text (takes a motion)
 " similar to v(motion)p but also cuts text into black hole register so it is
 " repeatable. So really it's similar to v(motion)"_p
-Bundle 'ReplaceWithRegister'
+Plugin 'ReplaceWithRegister'
 
-Bundle 'henrik/vim-yaml-flattener'
+Plugin 'henrik/vim-yaml-flattener'
 
-Bundle 'hhvm/vim-hack'
+" Support for Hack & HHVM
+Plugin 'hhvm/vim-hack'
+
+call vundle#end()
+filetype plugin indent on
 
 :runtime macros/matchit.vim
-
-filetype plugin indent on
 
 " Backups and swap
 set nobackup
@@ -244,8 +240,11 @@ let g:syntastic_enable_signs=1
 " let g:syntastic_quiet_warnings=1 DEPRECATED
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 
-" Turn off jslint errors by default
-let g:JSLintHighlightErrorLine = 0
+" syntastic config using node & eslint. Requires eslint:
+"   npm install eslint -g
+" Also requires an .eslintrc file:
+"   http://eslint.org/docs/user-guide/configuring
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Use Node.js for JavaScript interpretation
 let $JS_CMD='node'

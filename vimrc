@@ -93,6 +93,9 @@ Plugin 'tpope/vim-rails'
 " Improved javascript indentation
 Plugin 'pangloss/vim-javascript'
 
+" React & JSX highlighting
+Plugin 'mxw/vim-jsx'
+
 " Vim Git runtime files
 Plugin 'tpope/vim-git'
 
@@ -178,7 +181,7 @@ set smartcase
 " Tab completion
 set wildmode=longest,list
 set wildmenu
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,public/javascripts/compiled,*.css,tmp,*.orig,*.jpg,*.png,*.gif,log,solr,.sass-cache,.jhw-cache,bundler_stubs,build,error_pages,node_modules,bower_components
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,public/javascripts/compiled,tmp,*.orig,*.jpg,*.png,*.gif,log,solr,.sass-cache,.jhw-cache,bundler_stubs,build,error_pages,node_modules,bower_components
 
 " Status bar
 set laststatus=2
@@ -245,6 +248,9 @@ let g:syntastic_quiet_messages = {'level': 'warnings'}
 " Also requires an .eslintrc file:
 "   http://eslint.org/docs/user-guide/configuring
 let g:syntastic_javascript_checkers = ['eslint']
+
+" Include .js files for jsx syntax
+let g:jsx_ext_required = 0
 
 " Use Node.js for JavaScript interpretation
 let $JS_CMD='node'

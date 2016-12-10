@@ -244,7 +244,8 @@ let g:syntastic_enable_signs=1
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " syntastic config using node & eslint. Requires eslint:
-"   npm install eslint -g
+"   npm install -g eslint
+"   npm install -g eslint-plugin-react
 " Also requires an .eslintrc file:
 "   http://eslint.org/docs/user-guide/configuring
 let g:syntastic_javascript_checkers = ['eslint']

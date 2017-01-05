@@ -207,6 +207,8 @@ set modeline
 set modelines=10
 
 " CTags
+" brew install ctags
+" $ ctags -R .
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 

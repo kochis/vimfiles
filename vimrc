@@ -143,6 +143,9 @@ Plugin 'henrik/vim-yaml-flattener'
 " Support for Hack & HHVM
 Plugin 'hhvm/vim-hack'
 
+" Support for .slim files
+Plugin 'slim-template/vim-slim.git'
+
 call vundle#end()
 filetype plugin indent on
 

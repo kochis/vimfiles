@@ -231,6 +231,10 @@ au BufNewFile,BufRead *.hamlbars set ft=haml
 au BufNewFile,BufRead *.hamlc set ft=haml
 au BufNewFile,BufRead *.jst.ejs set ft=jst
 
+" Add css highlighting for .pcss files
+au BufNewFile,BufRead *.pcss set ft=css
+
+
 au FileType * set softtabstop=2 tabstop=2 shiftwidth=2
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )

@@ -52,6 +52,9 @@ Plugin 'nathanaelkane/vim-command-w'
 " Shows syntax errors on several types of files
 Plugin 'scrooloose/syntastic'
 
+" Use local version of eslint
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+
 " Automatically add end at the end of ruby and vim blocks
 Plugin 'tpope/vim-endwise'
 

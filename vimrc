@@ -149,6 +149,8 @@ Plugin 'hhvm/vim-hack'
 " Support for .slim files
 Plugin 'slim-template/vim-slim.git'
 
+Plugin 'scrooloose/nerdtree'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -370,6 +372,11 @@ map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up> :echo "no!"<cr>
 map <Down> :echo "no!"<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NerdTree mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-n> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tmux stuff

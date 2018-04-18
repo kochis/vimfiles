@@ -151,6 +151,9 @@ Plugin 'slim-template/vim-slim.git'
 
 Plugin 'scrooloose/nerdtree'
 
+" Support for Flow js
+Plugin 'flowtype/vim-flow'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -252,11 +255,18 @@ set backspace=indent,eol,start
 " Command mode: %%
 cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 
+" close quickfix window if no errors
+let g:flow#autoclose = 1
+
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 " let g:syntastic_quiet_warnings=1 DEPRECATED
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 
+" show warnings in window
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+"
 " syntastic config using node & eslint. Requires eslint:
 "   npm install -g eslint
 "   npm install -g eslint-plugin-react

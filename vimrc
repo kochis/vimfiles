@@ -263,6 +263,15 @@ let g:syntastic_enable_signs=1
 " let g:syntastic_quiet_warnings=1 DEPRECATED
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 
+" Use local version of eslint (not global install)
+" part of 'mtscout6/syntastic-local-eslint.vim'
+" also need to use npm-which function in bash_profile:
+" http://blog.pixelastic.com/2015/10/05/use-local-eslint-in-syntastic/
+function! StrTrim(txt)
+  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+endfunction
+let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+
 " show warnings in window
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
@@ -272,6 +281,12 @@ let g:syntastic_quiet_messages = {'level': 'warnings'}
 "   npm install -g eslint-plugin-react
 " Also requires an .eslintrc file:
 "   http://eslint.org/docs/user-guide/configuring
+"
+" to debug:
+"   let g:syntastic_debug=1 (error level 1 - 3)
+"
+" make sure you can see version from vim
+"   :echo syntastic#util#system('eslint --version')
 let g:syntastic_javascript_checkers = ['eslint']
 
 " Include .js files for jsx syntax

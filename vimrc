@@ -73,16 +73,8 @@ Plugin 'kana/vim-textobj-user'
 " blank lines
 Plugin 'kana/vim-textobj-indent'
 
-" Motion based on ruby blocks. vir selects in a ruby block
-Plugin 'nelstrom/vim-textobj-rubyblock'
-
 " Tab to indent or autocomplete depending on context
 Plugin 'ervandew/supertab'
-
-" Run specs or cucumber features with ,t run only the test under the cursor
-" with ,T also remembers last run test so you can hit it again on non-test
-" files to run the last run test
-" Plugin 'skalnik/vim-vroom'
 
 " Vim coffeescript runtime files
 Plugin 'kchmck/vim-coffee-script'
@@ -133,6 +125,12 @@ Plugin 'nelstrom/vim-mac-classic-theme'
 " vim powerline -  The ultimate vim statusline utility
 Plugin 'Lokaltog/vim-powerline'
 
+" Typescript syntax highlighting
+Plugin 'leafgarland/typescript-vim'
+
+" Typescript typechecking
+Plugin 'Quramy/tsuquyomi'
+
 " makes the command line behave like emacs
 Plugin 'houtsnip/vim-emacscommandline'
 
@@ -142,17 +140,6 @@ Plugin 'houtsnip/vim-emacscommandline'
 Plugin 'ReplaceWithRegister'
 
 Plugin 'henrik/vim-yaml-flattener'
-
-" Support for Hack & HHVM
-Plugin 'hhvm/vim-hack'
-
-" Support for .slim files
-Plugin 'slim-template/vim-slim.git'
-
-Plugin 'scrooloose/nerdtree'
-
-" Support for Flow js
-Plugin 'flowtype/vim-flow'
 
 call vundle#end()
 filetype plugin indent on
@@ -257,6 +244,12 @@ cmap %% <C-R>=expand("%:p:h") . "/" <CR>
 
 " close quickfix window if no errors
 let g:flow#autoclose = 1
+
+" Make sure TSS is installed globally
+" npm install -g clausreinke/typescript-tools
+let g:typescript_compiler_binary = 'tsc'
+let g:tsuquyomi_completion_detail = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
@@ -492,17 +485,20 @@ autocmd FileType help exe QuitWithQ()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline configuration, you'll need a powerline patched font.
 " You should probably use inconsolata-g (included in fonts directory)
+" https://github.com/gabrielelana/awesome-terminal-fonts/wiki/OS-X
 "
 " If not, you can patch your own.
 " See: https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher
 " You'll probably need this too: https://github.com/jenius/Fontforge-Installer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_stl_path_style = 'short'
-call Pl#Theme#RemoveSegment('fugitive:branch')
-call Pl#Theme#RemoveSegment('fileformat')
-call Pl#Theme#RemoveSegment('fileencoding')
-call Pl#Theme#RemoveSegment('scrollpercent')
+" let g:Powerline_symbols = 'fancy'
+" let g:Powerline_stl_path_style = 'short'
+" set encoding=utf-8
+" set termencoding=utf-8
+" call Pl#Theme#RemoveSegment('fugitive:branch')
+" call Pl#Theme#RemoveSegment('fileformat')
+" call Pl#Theme#RemoveSegment('fileencoding')
+" call Pl#Theme#RemoveSegment('scrollpercent')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " This enables iterm cursor changes from vim. In .tmux.conf you'll need:
@@ -573,6 +569,9 @@ end
 if has("autocmd")
   au BufReadPost *.rkt,*.rktl set filetype=scheme
 endif
+
+" Add typescript filename support
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LAST SECTION

@@ -1,0 +1,75 @@
+{
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+      }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<C-h>"],
+        "after": ["<C-w>", "h"]
+      },
+      {
+        "before": ["<C-j>"],
+        "after": ["<C-w>", "j"]
+      },
+      {
+        "before": ["<C-k>"],
+        "after": ["<C-w>", "k"]
+      },
+      {
+        "before": ["<C-l>"],
+        "after": ["<C-w>", "l"]
+      },
+      {
+        "before": ["L"],
+        "after": ["$"],
+      },
+      {
+        "before": ["H"],
+        "after": ["^"]
+      },
+      {
+        "before": ["<leader>", "f"],
+        "commands": [
+            "workbench.action.quickOpen"
+        ],
+      },
+      {
+          "before": ["<C-]>"],
+          "commands": [
+              "editor.action.revealDefinition"
+          ]
+      },
+      {
+          "before": ["<C-[>"],
+          "after": ["<C-o>"],
+      }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [ ">" ],
+            "commands": [
+                "editor.action.indentLines"
+            ],
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ],
+        },
+    ],
+    "vim.leader": ",",
+    "vim.handleKeys": {
+      "<C-a>": false,
+      "<C-f>": false
+    }
+  }

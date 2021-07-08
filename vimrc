@@ -1,6 +1,8 @@
 set nocompatible
 let mapleader = ","
 
+set shell=/bin/bash
+
 " Vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -20,6 +22,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Git in vim, use ,gs for git status then - to stage then C to commit
 " check :help Gstatus for more keys
 Plugin 'tpope/vim-fugitive'
+
+" Fugitive commands for github (:GBrowse)
+Plugin 'tpope/vim-rhubarb'
 
 " Surrond stuff with things. ysiw" surrounds a word with quotes
 " cs"' changes " to '
@@ -179,7 +184,7 @@ set smartcase
 " Tab completion
 set wildmode=longest,list
 set wildmenu
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,public/javascripts/compiled,tmp,*.orig,*.jpg,*.png,*.gif,log,solr,.sass-cache,.jhw-cache,bundler_stubs,build,error_pages,node_modules,bower_components
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,public/javascripts/compiled,tmp,*.orig,*.jpg,*.png,*.gif,log,solr,.sass-cache,.jhw-cache,bundler_stubs,build,error_pages,node_modules,bower_components,coverage,dist
 
 " Status bar
 set laststatus=2
@@ -263,7 +268,8 @@ let g:syntastic_quiet_messages = {'level': 'warnings'}
 function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
-let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+" let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+let g:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
 " show warnings in window
 " let g:syntastic_always_populate_loc_list = 1
@@ -281,6 +287,11 @@ let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 " make sure you can see version from vim
 "   :echo syntastic#util#system('eslint --version')
 let g:syntastic_javascript_checkers = ['eslint']
+
+" make sure shellcheck is installed
+" brew install shellcheck
+let g:syntastic_sh_checkers = ['shellcheck', 'sh']
+let g:syntastic_sh_shellcheck_args = "-x"
 
 " Include .js files for jsx syntax
 let g:jsx_ext_required = 0
@@ -375,7 +386,9 @@ map <leader>jf :let g:ctrlp_default_input = 'features/'<cr>:CtrlP<cr>
 map <leader>f :let g:ctrlp_default_input = 0<cr>:CtrlP<cr>
 map <leader>u :let g:ctrlp_default_input = 0<cr>:CtrlPBuffer<cr>
 map <leader><leader>f :let g:ctrlp_default_input = 0<cr>:CtrlPClearCache<cr>:CtrlP<cr>
-set wildignore+=*/public/uploads/**
+let g:ctrlp_custom_ignore = {
+\  'dir' : '\.git$\|build$\|bower_components\|node_modules\|dist\|target'
+\ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ack mappings

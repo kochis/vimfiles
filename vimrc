@@ -146,6 +146,9 @@ Plugin 'ReplaceWithRegister'
 
 Plugin 'henrik/vim-yaml-flattener'
 
+" Highlighting for shader languange
+Plugin 'tikhomirov/vim-glsl'
+
 call vundle#end()
 filetype plugin indent on
 
